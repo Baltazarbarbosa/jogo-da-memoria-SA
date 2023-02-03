@@ -1,4 +1,10 @@
 const grid = document.querySelector('.grid');
+
+const spanPlayer = document.querySelector('.player');
+const spanFone = document.querySelector('.telefone');
+const spanEmail = document.querySelector('.email');
+const timer = document.querySelector('.timer');
+
 const fotos = [
     'atoll-fachada.jpg',
     'cinque-terre-fachada.jpg',
@@ -58,6 +64,17 @@ const criarCartas = (fotos) => {
     return card;
 }
 
+const checarFimDeJogo = () => {
+
+    const cartas = document.querySelectorAll('.disable-card');
+
+    if (cartas.length == 12) {
+        clearInterval(this.loop);
+        alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de ${timer.innerHTML}`);
+    }
+
+}
+
 const checarCartas = () => {
 
     const primeiraCartaData = primeiraCarta.getAttribute('data-card');
@@ -69,32 +86,38 @@ const checarCartas = () => {
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        checarFimDeJogo();
     } else if (primeiraCartaData == 'cinque-terre-fachada.jpg' && segundaCartaData == 'LOGO-CINQUE-TERRE-PNG.png' || primeiraCartaData == 'LOGO-CINQUE-TERRE-PNG.png' && segundaCartaData == 'cinque-terre-fachada.jpg') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        checarFimDeJogo();
 
     } else if (primeiraCartaData == 'lodge-fachada.jpg' && segundaCartaData == 'LOGO LODGE 02-1.png' || primeiraCartaData == 'LOGO LODGE 02-1.png' && segundaCartaData == 'lodge-fachada.jpg') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        checarFimDeJogo();
     } else if (primeiraCartaData == 'Logo Vero.png' && segundaCartaData == 'vero-fachada.jpg' || primeiraCartaData == 'vero-fachada.jpg' && segundaCartaData == 'Logo Vero.png') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        checarFimDeJogo();
     } else if (primeiraCartaData == 'LOGO EMIRATES - 01-01.png' && segundaCartaData == 'emirates-fachada.jpg' || primeiraCartaData == 'emirates-fachada.jpg' && segundaCartaData == 'LOGO EMIRATES - 01-01.png') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        checarFimDeJogo();
     } else if (primeiraCartaData == 'Logo-Tai-2.png' && segundaCartaData == 'tai-fachada.jpg' || primeiraCartaData == 'tai-fachada.jpg' && segundaCartaData == 'Logo-Tai-2.png') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        checarFimDeJogo();
     }
 
     else {
@@ -122,4 +145,25 @@ const loadGame = () => {
 
 }
 
-loadGame();
+startTimer = () => {
+    this.loop = setInterval(() => {
+        const tempoCorrente = Number(timer.innerHTML);
+        timer.innerHTML = tempoCorrente + 1;
+    }, 1000);
+
+}
+
+window.onload = () => {
+
+
+
+    spanPlayer.innerHTML = localStorage.getItem('Nome');
+    spanFone.innerHTML = localStorage.getItem('Telefone');
+    spanEmail.innerHTML = localStorage.getItem('Email');
+
+    startTimer();
+
+
+    loadGame();
+}
+
