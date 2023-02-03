@@ -4,6 +4,10 @@ const spanPlayer = document.querySelector('.player');
 const spanFone = document.querySelector('.telefone');
 const spanEmail = document.querySelector('.email');
 const timer = document.querySelector('.timer');
+const spanMovimentos = document.querySelector('.movimentos');
+const spanAcertos = document.querySelector('.acertos');
+
+
 
 const fotos = [
     'atoll-fachada.jpg',
@@ -86,12 +90,22 @@ const checarCartas = () => {
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        const movimentos = Number(spanMovimentos.innerHTML);
+        spanMovimentos.innerHTML = movimentos + 1;
+        const acertos = Number(spanAcertos.innerHTML);
+        spanAcertos.innerHTML = acertos + 1;
+
         checarFimDeJogo();
     } else if (primeiraCartaData == 'cinque-terre-fachada.jpg' && segundaCartaData == 'LOGO-CINQUE-TERRE-PNG.png' || primeiraCartaData == 'LOGO-CINQUE-TERRE-PNG.png' && segundaCartaData == 'cinque-terre-fachada.jpg') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        const movimentos = Number(spanMovimentos.innerHTML);
+        spanMovimentos.innerHTML = movimentos + 1;
+        const acertos = Number(spanAcertos.innerHTML);
+        spanAcertos.innerHTML = acertos + 1;
+
         checarFimDeJogo();
 
     } else if (primeiraCartaData == 'lodge-fachada.jpg' && segundaCartaData == 'LOGO LODGE 02-1.png' || primeiraCartaData == 'LOGO LODGE 02-1.png' && segundaCartaData == 'lodge-fachada.jpg') {
@@ -99,24 +113,44 @@ const checarCartas = () => {
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        const movimentos = Number(spanMovimentos.innerHTML);
+        spanMovimentos.innerHTML = movimentos + 1;
+        const acertos = Number(spanAcertos.innerHTML);
+        spanAcertos.innerHTML = acertos + 1;
+
         checarFimDeJogo();
     } else if (primeiraCartaData == 'Logo Vero.png' && segundaCartaData == 'vero-fachada.jpg' || primeiraCartaData == 'vero-fachada.jpg' && segundaCartaData == 'Logo Vero.png') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        const movimentos = Number(spanMovimentos.innerHTML);
+        spanMovimentos.innerHTML = movimentos + 1;
+        const acertos = Number(spanAcertos.innerHTML);
+        spanAcertos.innerHTML = acertos + 1;
+
         checarFimDeJogo();
     } else if (primeiraCartaData == 'LOGO EMIRATES - 01-01.png' && segundaCartaData == 'emirates-fachada.jpg' || primeiraCartaData == 'emirates-fachada.jpg' && segundaCartaData == 'LOGO EMIRATES - 01-01.png') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        const movimentos = Number(spanMovimentos.innerHTML);
+        spanMovimentos.innerHTML = movimentos + 1;
+        const acertos = Number(spanAcertos.innerHTML);
+        spanAcertos.innerHTML = acertos + 1;
+
         checarFimDeJogo();
     } else if (primeiraCartaData == 'Logo-Tai-2.png' && segundaCartaData == 'tai-fachada.jpg' || primeiraCartaData == 'tai-fachada.jpg' && segundaCartaData == 'Logo-Tai-2.png') {
         primeiraCarta.firstChild.classList.add('disable-card');
         segundaCarta.firstChild.classList.add('disable-card');
         primeiraCarta = '';
         segundaCarta = '';
+        const movimentos = Number(spanMovimentos.innerHTML);
+        spanMovimentos.innerHTML = movimentos + 1;
+        const acertos = Number(spanAcertos.innerHTML);
+        spanAcertos.innerHTML = acertos + 1;
+
         checarFimDeJogo();
     }
 
@@ -126,6 +160,8 @@ const checarCartas = () => {
             segundaCarta.classList.remove('reveal-card');
             primeiraCarta = '';
             segundaCarta = '';
+            const movimentos = Number(spanMovimentos.innerHTML);
+            spanMovimentos.innerHTML = movimentos + 1;
 
         }, 500);
     }
@@ -153,6 +189,8 @@ startTimer = () => {
 
 }
 
+
+
 window.onload = () => {
 
 
@@ -161,7 +199,9 @@ window.onload = () => {
     spanFone.innerHTML = localStorage.getItem('Telefone');
     spanEmail.innerHTML = localStorage.getItem('Email');
 
+
     startTimer();
+
 
 
     loadGame();

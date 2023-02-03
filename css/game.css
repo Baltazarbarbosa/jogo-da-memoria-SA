@@ -32,6 +32,9 @@ main {
     margin-bottom: 15px;
     
 }
+.pontos{
+    align-items: none;
+}
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
