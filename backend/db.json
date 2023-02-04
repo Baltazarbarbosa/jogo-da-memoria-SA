@@ -1,0 +1,19 @@
+{
+    "user": [{
+        "id": 1,
+        "name": "John Doe",
+        "email": "teste@teste.com",
+        "telefone": "1234567890",
+        "movimentos": "0",
+        "acertos": "0",
+        "tempo": "0"
+    },{
+        "id": 2,
+        "name": "John Doe",
+        "email": "teste2@teste.com",
+        "telefone": "1234567890",
+        "movimentos": "0",
+        "acertos": "0",
+        "tempo": "0"
+    }]
+}
